@@ -9,6 +9,7 @@ from product.serializers import ProductSerializer, CategorySerializer, ReviewSer
 
 @api_view(['GET', 'POST'])
 def category_list_api_view(request):
+    print(request.user)
     if request.method == 'GET':
         categories = Category.objects.all()
         serializer = CategorySerializer(categories, many=True)
