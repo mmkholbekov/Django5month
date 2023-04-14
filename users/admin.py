@@ -1,4 +1,4 @@
 from django.contrib import admin
-from users.models import ConfirmUser
+from users.models import ConfirmCode
 
-admin.site.register(ConfirmUser)
+admin.site.register(ConfirmCode)

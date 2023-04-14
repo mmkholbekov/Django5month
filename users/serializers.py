@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.exceptions import ValidationError
-from .models import ConfirmUser
+from .models import ConfirmCode
 
 class UserValidateSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -33,7 +33,7 @@ class ConfirmUserSerializer(serializers.Serializer):
 
     def validate_user_id(self, user_id):
         try:
-            ConfirmUser.objects.get(id=user_id)
-        except ConfirmUser.DoesNotExists:
+            ConfirmCode.objects.get(id=user_id)
+        except ConfirmCode.DoesNotExists:
             raise ValidationError('User_id does not exists!')
         return user_id
